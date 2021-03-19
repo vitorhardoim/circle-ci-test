@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  node: circleci/node@x.y
 jobs: 
   build:
     working_directory: ~/tmp
@@ -6,6 +8,7 @@ jobs:
       - image: circleci/node:7
     steps:
       - checkout
-      - run: npm install:
-        cache-path: ~/tmp/node_modules
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
       - run: npm test
