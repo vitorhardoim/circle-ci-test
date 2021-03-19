@@ -6,6 +6,6 @@ jobs:
       - image: circleci/node:7
     steps:
       - checkout
-      - run: npm install
+      - run: npm install:
         cache-path: ~/tmp/node_modules
       - run: npm test
