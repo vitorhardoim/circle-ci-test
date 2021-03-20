@@ -5,7 +5,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: cimg/node:latest
+      - image: circleci/node:14.16.0
     steps:
       - checkout
       - node/install-packages:
