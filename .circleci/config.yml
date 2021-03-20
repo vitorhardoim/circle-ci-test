@@ -3,9 +3,9 @@ orbs:
   node: circleci/node@4.2.0
 jobs: 
   build:
-    working_directory: ~/tmp
+    working_directory: ~/project
     docker:
-      - image: circleci/node:9.9
+      - image: cimg/node:latest
     steps:
       - checkout
       - node/install-packages:
