@@ -8,12 +8,7 @@ jobs:
       - image: circleci/node:14.16.0
     steps:
       - checkout
-      - restore_cache:
-        keys:
-          - v1-deps-{{ checksum "package-lock.json" }}
-      - run: npm install
-      - save_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
-          paths:
-            - ~/project/node_modules
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
       - run: npm test
